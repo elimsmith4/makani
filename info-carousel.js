@@ -1,5 +1,39 @@
 // Carousel
 $(document).ready(function () {
+    // Load animations
+    let loadCarousel = gsap.timeline({
+        scrollTrigger: {
+            // markers: true,
+            trigger: ".carousel_main",
+            start: "top 75%",
+            end: "bottom bottom",
+        },
+    });
+    loadCarousel.from(".circular_image_wrap", { opacity: 0, scale: 0.8 });
+    loadCarousel.from(".carousel-slides_num", { opacity: 0, scale: 0.5 });
+    loadCarousel.from(".carousel_image_wrap", { scale: 0.8, opacity: 0, duration: 0.5, ease: "power2.out" }, "<0.25");
+    loadCarousel.from(
+        "[data-carousel=abs-right] .abs_line_wrap",
+        {
+            x: "-100%",
+            duration: 0.5,
+            stagger: { amount: 0.3, from: "center" },
+            ease: "elastic.out(1,0.5)",
+        },
+        ">-0.1"
+    );
+    loadCarousel.from(
+        "[data-carousel=abs-left] .abs_line_wrap",
+        {
+            x: "100%",
+            duration: 0.5,
+            stagger: { amount: 0.3, from: "center" },
+            ease: "elastic.out(1,0.5)",
+        },
+        "<"
+    );
+
+    // Animation behavior on click
     $(".carousel_main").each(function () {
         const carousel = $(this);
         const slideSets = [
