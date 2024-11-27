@@ -7,7 +7,7 @@ export function initInfoCarousel() {
             // markers: true,
             trigger: ".carousel_main",
             start: "top bottom",
-            end: "bottom 70%",
+            end: "top 70%",
             toggleActions: "none play none reset"
         },
     });
