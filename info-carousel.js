@@ -3,14 +3,16 @@ $(document).ready(function () {
     // Load animations
     let loadCarousel = gsap.timeline({
         scrollTrigger: {
-            // markers: true,
+            markers: true,
             trigger: ".carousel_main",
             start: "top 75%",
             end: "bottom bottom",
         },
     });
-    loadCarousel.from(".circular_image_wrap", { opacity: 0, scale: 0.8 });
     loadCarousel.from(".carousel-slides_num", { opacity: 0, scale: 0.5 });
+    loadCarousel.from(".carousel_static_header", { opacity: 0, y: "2rem" }, "<0.25");
+    loadCarousel.from(".carousel-slides_header", { opacity: 0, y: "2rem" }, "<");
+    loadCarousel.from(".carousel-slides_text", { opacity: 0, y: "2rem" }, "<0.25");
     loadCarousel.from(".carousel_image_wrap", { scale: 0.8, opacity: 0, duration: 0.5, ease: "power2.out" }, "<0.25");
     loadCarousel.from(
         "[data-carousel=abs-right] .abs_line_wrap",
