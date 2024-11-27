@@ -1,5 +1,6 @@
 // Carousel
 $(document).ready(function () {
+    console.log("document is ready");
     // Load animations
     let loadCarousel = gsap.timeline({
         scrollTrigger: {
@@ -9,6 +10,7 @@ $(document).ready(function () {
             end: "bottom bottom",
         },
     });
+    console.log(loadCarousel);
     loadCarousel.from(".carousel-slides_num", { opacity: 0, scale: 0.5 });
     loadCarousel.from(".carousel_static_header", { opacity: 0, y: "2rem" }, "<0.25");
     loadCarousel.from(".carousel-slides_header", { opacity: 0, y: "2rem" }, "<");
