@@ -1,5 +1,11 @@
+// Initialize the carousel
+document.addEventListener('DOMContentLoaded', () => {
+    console.log("About.js loaded");
+    loadAboutHeroSection();
+});
+
 // About page animations
-$(document).ready(function () {
+function loadAboutHeroSection() {
     // Hero section
     let aboutLoadTl = gsap.timeline();
 
@@ -53,18 +59,7 @@ $(document).ready(function () {
         0
     );
 
-
-    // let loadCarousel = gsap.timeline({
-    //     scrollTrigger: {
-    //         markers: true,
-    //         trigger: ".carousel_main",
-    //         start: "top 80%",
-    //         end: "bottom bottom",
-    //     },
-    // });
-
-    // loadCarousel.from(".carousel_main", { opacity: 0, scale: 0.8 });
-});
+}
 
 // Image carousel
 function startCarousel() {

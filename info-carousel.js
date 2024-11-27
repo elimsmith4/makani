@@ -1,22 +1,22 @@
 // Carousel
-$(document).ready(function () {
-    console.log("document is ready");
+export function initInfoCarousel() {
+    console.log("Initializing carousel");
     // Load animations
-    let loadCarousel = gsap.timeline({
+    let loadCarouselTl = gsap.timeline({
         scrollTrigger: {
-            markers: true,
+            // markers: true,
             trigger: ".carousel_main",
-            start: "top 75%",
-            end: "bottom bottom",
+            start: "top bottom",
+            end: "bottom 70%",
+            toggleActions: "none play none reset"
         },
     });
-    console.log(loadCarousel);
-    loadCarousel.from(".carousel-slides_num", { opacity: 0, scale: 0.5 });
-    loadCarousel.from(".carousel_static_header", { opacity: 0, y: "2rem" }, "<0.2");
-    loadCarousel.from(".carousel-slides_header", { opacity: 0, y: "2rem" }, "<");
-    loadCarousel.from(".carousel-slides_text", { opacity: 0, y: "2rem" }, "<0.2");
-    loadCarousel.from(".carousel_image_wrap", { scale: 0.8, opacity: 0, duration: 0.5, ease: "power2.out" }, "<0.2");
-    loadCarousel.from(
+    loadCarouselTl.from(".carousel-slides_num", { opacity: 0, scale: 0.5 });
+    loadCarouselTl.from(".carousel_static_header", { opacity: 0, y: "2rem" }, "<0.2");
+    loadCarouselTl.from(".carousel-slides_header", { opacity: 0, y: "2rem" }, "<");
+    loadCarouselTl.from(".carousel-slides_text", { opacity: 0, y: "2rem" }, "<0.2");
+    loadCarouselTl.from(".carousel_image_wrap", { scale: 0.8, opacity: 0, duration: 0.5, ease: "power2.out" }, "<0.2");
+    loadCarouselTl.from(
         "[data-carousel=abs-right] .abs_line_wrap",
         {
             x: "-100%",
@@ -26,7 +26,7 @@ $(document).ready(function () {
         },
         ">-0.1"
     );
-    loadCarousel.from(
+    loadCarouselTl.from(
         "[data-carousel=abs-left] .abs_line_wrap",
         {
             x: "100%",
@@ -299,4 +299,4 @@ $(document).ready(function () {
         carousel.find(".carousel_next").on("click", nextSlide);
         carousel.find(".carousel_prev").on("click", prevSlide);
     });
-});
+}
